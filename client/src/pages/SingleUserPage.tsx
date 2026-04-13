@@ -1,12 +1,12 @@
 import React from "react";
 import SingleUser from "../components/SingleUser";
-import { useFetchSingleUser } from "../hooks/useFetchSingleUser";
+import { useFetchSingleTodo } from "../hooks/useFetchSingleTodo";
 import { useParams } from "react-router-dom";
-import type { ITodo } from "../interfaces/User.interface";
+import type { ITodo } from "../interfaces/todo.interface";
 
 const SingleUserPage: React.FC = () => {
   const params = useParams();
-  const { data, error, isLoading } = useFetchSingleUser(Number(params.id));
+  const { data, error, isLoading } = useFetchSingleTodo(Number(params.id));
 
   const { id, description, createdAt, isCompleted, title } =
     data || ({} as ITodo);

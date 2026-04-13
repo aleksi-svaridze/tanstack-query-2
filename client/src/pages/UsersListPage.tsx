@@ -1,9 +1,10 @@
 import React from "react";
-import useFetchUsers from "../hooks/useFetchUsers";
+import useFetchTodos from "../hooks/useFetchTodos";
 import UsersList from "../components/UsersList";
+import CreateNewTodo from "../components/CreateNewTodo";
 
 const UsersListPage: React.FC = () => {
-  const { data: todos, error, isLoading } = useFetchUsers();
+  const { data: todos, error, isLoading } = useFetchTodos();
 
   console.log(todos);
 
@@ -14,6 +15,7 @@ const UsersListPage: React.FC = () => {
   return (
     <div>
       <h1 className="font-bold mb-5 text-2xl">All users</h1>
+      <CreateNewTodo />
       <UsersList todos={todos} />
     </div>
   );

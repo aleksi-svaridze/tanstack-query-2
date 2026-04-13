@@ -4,13 +4,7 @@ import React, {
   type FormEvent,
   type ReactNode,
 } from "react";
-
-interface IFieldProp {
-  type: string;
-  name: string;
-  placeholder: string;
-  label: string;
-}
+import type { IFieldProp } from "../../interfaces/todo.interface";
 
 interface CreateTodoFormProps {
   fields: IFieldProp[];

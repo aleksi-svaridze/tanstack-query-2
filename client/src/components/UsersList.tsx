@@ -1,7 +1,8 @@
-import React from "react";
-import type { ITodo } from "../interfaces/User.interface";
+import React, { type MouseEvent } from "react";
+import type { ITodo } from "../interfaces/todo.interface";
 import { useNavigate } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import useDeleteTodo from "../hooks/useDeleteTodo";
 
 interface UsersListProps {
   todos: ITodo[] | undefined;
@@ -9,6 +10,13 @@ interface UsersListProps {
 
 const UsersList: React.FC<UsersListProps> = ({ todos }) => {
   const navigate = useNavigate();
+  const { mutate } = useDeleteTodo();
+
+  const hendleDelete = (e: MouseEvent<HTMLButtonElement>, id: number) => {
+    e.stopPropagation();
+    mutate(id);
+  };
+
   return (
     <ul>
       {todos?.map((todo: ITodo) => (
@@ -21,6 +29,7 @@ const UsersList: React.FC<UsersListProps> = ({ todos }) => {
             {todo.title} - {todo.createdAt}
           </p>
           <p>{todo.description}</p>
+          <button onClick={(e) => hendleDelete(e, todo.id)}>Delete</button>
           <FaLongArrowAltRight />
         </li>
       ))}
