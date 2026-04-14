@@ -1,10 +1,10 @@
 import React from "react";
-import SingleUser from "../components/SingleUser";
+import SingleTodo from "../components/SingleTodo";
 import { useFetchSingleTodo } from "../hooks/useFetchSingleTodo";
 import { useParams } from "react-router-dom";
 import type { ITodo } from "../interfaces/todo.interface";
 
-const SingleUserPage: React.FC = () => {
+const SingleTodoPage: React.FC = () => {
   const params = useParams();
   const { data, error, isLoading } = useFetchSingleTodo(Number(params.id));
 
@@ -17,7 +17,7 @@ const SingleUserPage: React.FC = () => {
 
   return (
     <div>
-      <SingleUser
+      <SingleTodo
         id={id}
         description={description}
         isCompleted={isCompleted}
@@ -28,4 +28,4 @@ const SingleUserPage: React.FC = () => {
   );
 };
 
-export default SingleUserPage;
+export default SingleTodoPage;

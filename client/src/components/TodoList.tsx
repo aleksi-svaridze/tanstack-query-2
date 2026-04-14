@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import useDeleteTodo from "../hooks/useDeleteTodo";
 
-interface UsersListProps {
+interface ITodoListProps {
   todos: ITodo[] | undefined;
 }
 
-const UsersList: React.FC<UsersListProps> = ({ todos }) => {
+const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
   const navigate = useNavigate();
   const { mutate } = useDeleteTodo();
 
@@ -23,7 +23,7 @@ const UsersList: React.FC<UsersListProps> = ({ todos }) => {
         <li
           className="border-b py-2 not-last:mb-2 cursor-pointer flex items-center justify-between"
           key={todo.id}
-          onClick={() => navigate(`/all-users/${todo.id}`)}
+          onClick={() => navigate(`/all-todos/${todo.id}`)}
         >
           <p>
             {todo.title} - {todo.createdAt}
@@ -37,4 +37,4 @@ const UsersList: React.FC<UsersListProps> = ({ todos }) => {
   );
 };
 
-export default UsersList;
+export default TodoList;

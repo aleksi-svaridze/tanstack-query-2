@@ -35,11 +35,14 @@ const CreateTodoForm: React.FC<CreateTodoFormProps> = ({
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="mb-10">
       {fields.map((field) => (
-        <div key={field.label}>
-          <label htmlFor={field.name}>{field.label}</label>
+        <div key={field.label} className="flex flex-col gap-1 mb-5">
+          <label htmlFor={field.name} className="capitalize">
+            {field.label}
+          </label>
           <input
+            className="py-2 px-4 border border-gray-300 outline-none"
             type="text"
             placeholder={field.placeholder}
             id={field.name}

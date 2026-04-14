@@ -9,18 +9,22 @@ const CreateNewTodo = () => {
       name: "title",
       placeholder: "Add todo title",
       type: "text",
-      label: "TITLE",
+      label: "title",
     },
     {
       name: "description",
       placeholder: "Add todo description",
       type: "text",
-      label: "DESCRIPTION",
+      label: "description",
     },
   ];
 
   const createBtn = () => {
-    return <button type="submit">Create todo</button>;
+    return (
+      <button type="submit" className="p-4 px-6 bg-gray-300 cursor-pointer">
+        Create todo
+      </button>
+    );
   };
 
   const onSubmit = (formData: Record<string, string>) => {

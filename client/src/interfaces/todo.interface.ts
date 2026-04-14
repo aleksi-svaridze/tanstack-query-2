@@ -12,3 +12,11 @@ export interface IFieldProp {
   placeholder: string;
   label: string;
 }
+
+export interface SingleTodoProps {
+  id: number;
+  title: string;
+  description: string;
+  isCompleted: boolean;
+  createdAt: string;
+}

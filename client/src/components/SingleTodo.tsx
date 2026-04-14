@@ -1,14 +1,7 @@
 import React from "react";
+import type { SingleTodoProps } from "../interfaces/todo.interface";
 
-interface SingleUsersProps {
-  id: number;
-  title: string;
-  description: string;
-  isCompleted: boolean;
-  createdAt: string;
-}
-
-const SingleUser: React.FC<SingleUsersProps> = ({
+const SingleTodo: React.FC<SingleTodoProps> = ({
   id,
   description,
   title,
@@ -25,4 +18,4 @@ const SingleUser: React.FC<SingleUsersProps> = ({
   );
 };
 
-export default SingleUser;
+export default SingleTodo;
