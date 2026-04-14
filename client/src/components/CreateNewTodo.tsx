@@ -35,9 +35,7 @@ const CreateNewTodo = () => {
   };
 
   return (
-    <div>
-      <CreateTodoForm fields={fields} formBtn={createBtn()} action={onSubmit} />
-    </div>
+    <CreateTodoForm fields={fields} formBtn={createBtn()} action={onSubmit} />
   );
 };
 

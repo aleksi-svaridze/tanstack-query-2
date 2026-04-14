@@ -9,8 +9,9 @@ export interface ITodo {
 export interface IFieldProp {
   type: string;
   name: string;
-  placeholder: string;
+  placeholder?: string;
   label: string;
+  value?: string;
 }
 
 export interface SingleTodoProps {

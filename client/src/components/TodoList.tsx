@@ -12,7 +12,12 @@ const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
   const navigate = useNavigate();
   const { mutate } = useDeleteTodo();
 
-  const hendleDelete = (e: MouseEvent<HTMLButtonElement>, id: number) => {
+  const handleUpdate = (e: MouseEvent<HTMLButtonElement>, id: number) => {
+    e.stopPropagation();
+    navigate(`/update-todo/${id}`);
+  };
+
+  const handleDelete = (e: MouseEvent<HTMLButtonElement>, id: number) => {
     e.stopPropagation();
     mutate(id);
   };
@@ -29,17 +34,23 @@ const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
           </div>
           <div className="flex items-center gap-x-10">
             <button
-              className="py-1 px-2 rounded text-sm bg-gray-300 cursor-pointer transition-all duration-200 hover:text-white hover:bg-gray-600"
-              onClick={(e) => hendleDelete(e, todo.id)}
+              className="py-1 px-3 rounded text-sm bg-gray-300 cursor-pointer transition-all duration-200 hover:text-white hover:bg-gray-600"
+              onClick={(e) => handleUpdate(e, todo.id)}
+            >
+              Update
+            </button>
+            <button
+              className="py-1 px-3 rounded text-sm bg-gray-300 cursor-pointer transition-all duration-200 hover:text-white hover:bg-gray-600"
+              onClick={(e) => handleDelete(e, todo.id)}
             >
               Delete
             </button>
             <button
-              className="py-1 px-2 rounded flex group items-center gap-x-5 text-sm bg-gray-300 cursor-pointer transition-all duration-200 hover:text-white hover:bg-gray-600"
+              className="py-1 px-3 rounded flex items-center gap-x-5 text-sm bg-gray-300 cursor-pointer transition-all duration-200 hover:text-white hover:bg-gray-600"
               onClick={() => navigate(`/all-todos/${todo.id}`)}
             >
               View more
-              <FaLongArrowAltRight className="group-hover:text-xl text-lg" />
+              <FaLongArrowAltRight className="text-lg" />
             </button>
           </div>
         </li>
