@@ -21,16 +21,27 @@ const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
     <ul>
       {todos?.map((todo: ITodo) => (
         <li
-          className="border-b py-2 not-last:mb-2 cursor-pointer flex items-center justify-between"
+          className="border-b py-2 not-last:mb-2 flex items-center justify-between"
           key={todo.id}
-          onClick={() => navigate(`/all-todos/${todo.id}`)}
         >
-          <p>
-            {todo.title} - {new Date(todo.createdAt).toLocaleDateString()}
-          </p>
-          <p>{todo.description}</p>
-          <button onClick={(e) => hendleDelete(e, todo.id)}>Delete</button>
-          <FaLongArrowAltRight />
+          <div className="">
+            <p className="font-bold">{todo.title}</p>
+          </div>
+          <div className="flex items-center gap-x-10">
+            <button
+              className="py-1 px-2 rounded text-sm bg-gray-300 cursor-pointer transition-all duration-200 hover:text-white hover:bg-gray-600"
+              onClick={(e) => hendleDelete(e, todo.id)}
+            >
+              Delete
+            </button>
+            <button
+              className="py-1 px-2 rounded flex group items-center gap-x-5 text-sm bg-gray-300 cursor-pointer transition-all duration-200 hover:text-white hover:bg-gray-600"
+              onClick={() => navigate(`/all-todos/${todo.id}`)}
+            >
+              View more
+              <FaLongArrowAltRight className="group-hover:text-xl text-lg" />
+            </button>
+          </div>
         </li>
       ))}
     </ul>
