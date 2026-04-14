@@ -10,7 +10,7 @@ const SingleTodo: React.FC<SingleTodoProps> = ({
 }) => {
   return (
     <div key={id}>
-      <p>Date: {createdAt}</p>
+      <p>Date: {new Date(createdAt).toLocaleDateString()}</p>
       <p>{title}</p>
       <p>{description}</p>
       <p>{isCompleted ? "Done" : "InProgress"}</p>

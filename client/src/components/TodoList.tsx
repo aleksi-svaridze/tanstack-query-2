@@ -26,7 +26,7 @@ const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
           onClick={() => navigate(`/all-todos/${todo.id}`)}
         >
           <p>
-            {todo.title} - {todo.createdAt}
+            {todo.title} - {new Date(todo.createdAt).toLocaleDateString()}
           </p>
           <p>{todo.description}</p>
           <button onClick={(e) => hendleDelete(e, todo.id)}>Delete</button>

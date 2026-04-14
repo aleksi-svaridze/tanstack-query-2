@@ -1,8 +1,10 @@
 import CreateTodoForm from "./forms/CreateTodoForm";
 import type { IFieldProp } from "../interfaces/todo.interface";
 import useCreateTodo from "../hooks/useCreateTodo";
+import { useNavigate } from "react-router-dom";
 
 const CreateNewTodo = () => {
+  const navigate = useNavigate();
   const { mutate } = useCreateTodo();
   const fields: IFieldProp[] = [
     {
@@ -29,6 +31,7 @@ const CreateNewTodo = () => {
 
   const onSubmit = (formData: Record<string, string>) => {
     mutate(formData);
+    navigate("/all-todos");
   };
 
   return (
